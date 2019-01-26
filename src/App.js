@@ -4,10 +4,13 @@ import "./App.css";
 
 class App extends Component {
   render() {
-    return;
-    <Grid className="checkout-box">
-      <div>Hello world</div>
-    </Grid>;
+    return (
+      <div className="container">
+        <Grid className="checkout-box">
+          <h1>Hello world</h1>
+        </Grid>
+      </div>
+    );
   }
 }
 
