@@ -8,6 +8,8 @@ import Total from "./components/total";
 import ItemDetails from "./components/itemDetails";
 import ApplyPromoCode from "./components/applyPromoCode";
 import IncreaseQuantity from "./components/increaseQuantity";
+import { connect } from "react-redux";
+import { handleChange } from "./actions/promoCodeAction";
 
 const price = 9999;
 
@@ -108,4 +110,11 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  promoCode: state.promoCode.value;
+});
+
+export default connect(
+  mapStateToProps,
+  { handleChange }
+)(App);
