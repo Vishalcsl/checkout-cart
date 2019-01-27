@@ -1,25 +1,41 @@
 import React, { Component } from "react";
+import Rodal from "rodal";
+import "rodal/lib/rodal.css";
 import {
   Collapse,
   Button,
-  form,
+  Form,
   FormGroup,
   FormControl,
   ControlLabel,
-  HelpBlock
+  HelpBlock,
+  Grid,
+  Row
 } from "react-bootstrap";
+
 class ApplyPromoCode extends Component {
   constructor() {
     super();
     this.state = {
       value: "",
-      open: false
+      open: false,
+      visible: false
     };
     this.handleChange = this.handleChange.bind(this);
+    this.show = this.show.bind(this);
+    this.hide = this.hide.bind(this);
   }
 
   handleChange(e) {
     this.setState({ value: e.target.value });
+  }
+
+  show() {
+    this.setState({ visible: true });
+  }
+
+  hide() {
+    this.setState({ visible: false });
   }
 
   render() {
@@ -36,25 +52,80 @@ class ApplyPromoCode extends Component {
         </Button>
         <Collapse in={this.state.open}>
           <div>
-            <form>
-              <FormGroup
-                controlId="formBasicText"
-                //validationState={this.getValidationState()}
-              >
+            <Form name="form" onSubmit={this.props.getDiscount}>
+              <FormGroup controlId="formBasicText">
                 <ControlLabel>Enter your promocode here!</ControlLabel>
                 <FormControl
                   type="text"
                   value={this.state.value}
                   placeholder="Enter valid PromoCode"
                   onChange={this.handleChange}
+                  name="promocode"
                 />
                 <FormControl.Feedback />
                 <HelpBlock>Applied only if valid.</HelpBlock>
               </FormGroup>
-            </form>
-            <Button bsSize="large" bsStyle="success" block>
-              Apply
-            </Button>
+              <FormGroup>
+                <Button
+                  onClick={this.show}
+                  disabled={this.props.disable}
+                  type="submit"
+                  bsSize="large"
+                  bsStyle="success"
+                  block
+                >
+                  Apply
+                </Button>
+                {this.props.check == true ? (
+                  <Rodal visible={this.state.visible} onClose={this.hide}>
+                    <div>
+                      <Grid>
+                        <Row className="show-grid">
+                          <h3 style={{ color: "green" }}>
+                            PromoCode Applied Successfully
+                          </h3>
+                        </Row>
+                        <Row className="pop-up-btn-row">
+                          <Button
+                            className="pop-up-btn"
+                            bsSize="large"
+                            bsStyle="success"
+                            onClick={this.hide}
+                          >
+                            ok
+                          </Button>
+                        </Row>
+                      </Grid>
+                    </div>
+                  </Rodal>
+                ) : (
+                  <Rodal visible={this.state.visible} onClose={this.hide}>
+                    <div>
+                      <Grid>
+                        <Row className="show-grid">
+                          <h3 style={{ color: "red", textAlign: "left" }}>
+                            Error!!
+                          </h3>
+                          <h3 style={{ color: "red", textAlign: "left" }}>
+                            Please Enter a valid PromoCode!!
+                          </h3>
+                        </Row>
+                        <Row className="pop-up-btn-row">
+                          <Button
+                            className="pop-up-btn"
+                            bsSize="large"
+                            bsStyle="danger"
+                            onClick={this.hide}
+                          >
+                            ok
+                          </Button>
+                        </Row>
+                      </Grid>
+                    </div>
+                  </Rodal>
+                )}
+              </FormGroup>
+            </Form>
           </div>
         </Collapse>
       </div>
