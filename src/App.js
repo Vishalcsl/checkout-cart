@@ -86,7 +86,7 @@ class App extends Component {
             subtotal={this.state.subtotal.toFixed(2)}
             quantity={this.state.quantity.toFixed(2)}
           />
-          <Taxes taxes={this.state.taxes.toFixed(2)} />
+          <Taxes taxes={this.state.taxes} />
           <IncreaseQuantity
             isDisabled={this.state.disableButton}
             disableIt={this.disableIt}
@@ -95,9 +95,9 @@ class App extends Component {
             quantity={this.state.quantity}
           />
           <hr />
-          <Total total={this.state.total.toFixed(2)} />
+          <Total total={this.state.total} />
           <hr />
-          <ItemDetails total={this.state.total.toFixed(2)} />
+          <ItemDetails total={this.state.total} />
           <hr />
           <ApplyPromoCode
             getDiscount={this.getDiscount}
@@ -111,7 +111,7 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  promoCode: state.promoCode.value;
+  promoCode: state.promoCode.value
 });
 
 export default connect(
