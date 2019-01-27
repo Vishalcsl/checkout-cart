@@ -81,10 +81,10 @@ class App extends Component {
           <SubTotal subtotal={this.state.subtotal.toFixed(2)} />
           <DeliveryCharges
             deliveryCharges={this.state.deliveryCharges.toFixed(2)}
-            subtotal={this.state.subtotal}
-            quantity={this.state.quantity}
+            subtotal={this.state.subtotal.toFixed(2)}
+            quantity={this.state.quantity.toFixed(2)}
           />
-          <Taxes taxes={this.state.taxes} />
+          <Taxes taxes={this.state.taxes.toFixed(2)} />
           <IncreaseQuantity
             isDisabled={this.state.disableButton}
             disableIt={this.disableIt}
@@ -93,9 +93,9 @@ class App extends Component {
             quantity={this.state.quantity}
           />
           <hr />
-          <Total total={this.state.total} />
+          <Total total={this.state.total.toFixed(2)} />
           <hr />
-          <ItemDetails total={this.state.total} />
+          <ItemDetails total={this.state.total.toFixed(2)} />
           <hr />
           <ApplyPromoCode
             getDiscount={this.getDiscount}
