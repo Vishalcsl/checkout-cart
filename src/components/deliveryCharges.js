@@ -30,9 +30,11 @@ class DeliveryCharges extends Component {
             <div style={styles.delivery}>Delivery Charges:-</div>
           </OverlayTrigger>
         </Col>
-        <Col md={6} style={styles.deliveryCharges}>{`$${
-          this.props.deliveryCharges
-        }`}</Col>
+        <Col md={6} style={styles.deliveryCharges}>
+          {this.props.subtotal < 500 && this.props.quantity > 1
+            ? "Rs40.00"
+            : `Rs${this.props.deliveryCharges}`}
+        </Col>
       </Row>
     );
   }
