@@ -8,6 +8,7 @@ import Total from "./components/total";
 import ItemDetails from "./components/itemDetails";
 import ApplyPromoCode from "./components/applyPromoCode";
 import IncreaseQuantity from "./components/increaseQuantity";
+import CompletionPage from "./components/completionPage/completionPage";
 import { connect } from "react-redux";
 import { handleChange } from "./actions/promoCodeAction";
 
@@ -105,6 +106,7 @@ class App extends Component {
             disable={this.state.disable}
           />
         </Grid>
+        <CompletionPage quantity={this.state.quantity} />
       </div>
     );
   }
