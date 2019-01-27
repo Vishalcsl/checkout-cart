@@ -40,3 +40,8 @@ padding:1em;
 .pop-up-btn:active{
   outline:none;
 }
+
+.checkout-btn{
+  margin-left: 42%;
+  margin-top:10px;
+}
