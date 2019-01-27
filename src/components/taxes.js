@@ -5,8 +5,8 @@ class Taxes extends Component {
   render() {
     return (
       <Row className="show-grid">
-        <Col md={6}>GST @18% </Col>
-        <Col md={6}>{`$${this.props.taxes}`}</Col>
+        <Col md={6}>GST @12% </Col>
+        <Col md={6}>{`Rs${this.props.taxes}`}</Col>
       </Row>
     );
   }
