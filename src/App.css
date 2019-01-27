@@ -20,3 +20,11 @@ padding:1em;
 .apply-promo-btn:focus{
   outline:none;
 }
+
+.qnty-btn:focus{
+  outline:none;
+}
+
+.qnty-btn:active{
+  outline:none;
+}
