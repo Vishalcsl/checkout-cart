@@ -17,7 +17,6 @@ const alert = (
 
 class IncreaseQuantity extends Component {
   render() {
-    console.log(this.state);
     return (
       <Row className="show-grid">
         <Col md={6}>Qnty:-</Col>
