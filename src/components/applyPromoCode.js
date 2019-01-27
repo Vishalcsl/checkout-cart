@@ -12,12 +12,13 @@ import {
   Grid,
   Row
 } from "react-bootstrap";
+import { connect } from "reatc-redux";
+import { handleChange } from "../actions/promoCodeAction";
 
 class ApplyPromoCode extends Component {
   constructor() {
     super();
     this.state = {
-      value: "",
       open: false,
       visible: false
     };
@@ -26,9 +27,9 @@ class ApplyPromoCode extends Component {
     this.hide = this.hide.bind(this);
   }
 
-  handleChange(e) {
-    this.setState({ value: e.target.value });
-  }
+  handleChange = e => {
+    this.props.handleChange(e);
+  };
 
   show() {
     this.setState({ visible: true });
@@ -133,4 +134,11 @@ class ApplyPromoCode extends Component {
   }
 }
 
-export default ApplyPromoCode;
+const mapStateToProps = state => ({
+  promoCode: state.promoCode.value
+});
+
+export default connect(
+  mapStateToProps,
+  { handleChange }
+)(ApplyPromoCode);
