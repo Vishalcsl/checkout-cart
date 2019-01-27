@@ -28,3 +28,15 @@ padding:1em;
 .qnty-btn:active{
   outline:none;
 }
+
+.pop-up-btn-row{
+  padding-top:4%;
+  padding-left:150px;
+}
+
+.pop-up-btn:focus{
+  outline:none;
+}
+.pop-up-btn:active{
+  outline:none;
+}
