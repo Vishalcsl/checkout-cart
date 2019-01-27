@@ -12,7 +12,7 @@ import {
   Grid,
   Row
 } from "react-bootstrap";
-import { connect } from "reatc-redux";
+import { connect } from "react-redux";
 import { handleChange } from "../actions/promoCodeAction";
 
 class ApplyPromoCode extends Component {
