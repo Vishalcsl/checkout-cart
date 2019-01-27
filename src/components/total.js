@@ -16,7 +16,7 @@ class Total extends Component {
           <h3>Total</h3>
         </Col>
         <Col md={6}>
-          <h3 style={style.textcolor}>{`$${this.props.total}`}</h3>
+          <h3 style={style.textcolor}>{`Rs${this.props.total}`}</h3>
         </Col>
       </Row>
     );
